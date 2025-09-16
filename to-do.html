@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>To DO Task Management App</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+
+    <button id="btn">Add task</button>
+
+    <ul id="tasklist"></ul>
+
+    <style>
+        body {
+            text-align: center;
+            background: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #taskInput {
+            padding: 10px;
+            width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #btn {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #btn:hover {
+            background-color: #218838;
+        }
+
+        #tasklist {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        #tasklist li {
+            background-color: #f8f9fa;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+
+
+    <script>
+        let tasks = []
+        console.log(tasks);
+
+        let taskInput = document.getElementById("taskInput")
+        let btn = document.getElementById("btn")
+        let tasklist = document.getElementById("tasklist")
+        btn.addEventListener("click", () => {
+            let newTask = taskInput.value.trim();
+            if (newTask !== "") {
+                tasks.push(newTask);
+                kunal();
+                taskInput.value = "";
+            }
+        })
+        function kunal() {
+            tasklist.innerText = "";
+
+            tasks.forEach((task, index) => {
+                let li = document.createElement("li");
+                li.innerText = task;
+                tasklist.appendChild(li);
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>
